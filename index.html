@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kubilay Zengin's personal website showcasing my brand and career.">
+    <meta name="keywords" content="Kubilay Zengin, Mechatronics Engineer, Mekatronik, Mekatronik Mühendisi, Computer Science, İzmir, robotics, robotik, automation, otomasyon, artificial intelligence, yapay zeka, software development, electrical electronics, embedded systems, gömülü sistemler">
+    <title>Kubilay Zengin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            height: 70vh;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+            padding-top: 30px;
+            padding-bottom: 40px;
+            transition: background-color 0.5s;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        header img:hover {
+            transform: scale(1.05);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            margin: 5px 0;
+            color: #bbb;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
+
+        nav {
+            background-color: #2a2a2a;
+            text-align: center;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #444;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            color: #000;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #000;
+            text-align: justify;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+	<img src="https://iili.io/2KZNwB4.jpg" alt="Kubilay Zengin's Photo" border="0">
+    <h1>Kubilay Zengin</h1>
+    <h2>Mechatronics Engineer / Computer Science</h2>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/kubilay-zengin-03962b242/" target="_blank">
+            <img src="https://img.icons8.com/ios11/200/FFFFFF/linkedin.png" alt="LinkedIn Logo">
+        </a>
+        <a href="https://github.com/KubilayZengin" target="_blank">
+            <img src="https://img.icons8.com/m_sharp/200/FFFFFF/github.png" alt="GitHub Logo">
+        </a>
+        <a href="https://drive.google.com/file/d/1GipcoUtIcRhTY_ajiGAQwjLOFZjLol1z/view?usp=sharing">
+            <img src="https://cdn-icons-png.flaticon.com/512/6588/6588143.png" alt="CV Logo">
+        </a>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hey there! I’m Kubilay Zengin, a Mechatronics Engineer with a Bachelor of Science degree from İzmir University of Economics, graduating as a Honour Student.  Alongside my major, I completed a minor in Computer Science, which has further fueled my passion for software development and robotics.
+
+I am deeply interested in various fields, including robotics, automation, embedded systems, artificial intelligence, and electrical electronic systems. 
+
+I firmly believe in continuous learning and personal growth, and I am always eager to enhance my knowledge and skills. In my free time, I enjoy exploring emerging technologies and working on personal projects that challenge my abilities and broaden my horizons.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>You can reach me at <a href="mailto:kubilay.zengin_2024@alu.ieu.edu.tr" style="color: #000; text-decoration: underline;">kubilay.zengin_2024@alu.ieu.edu.tr</a>.</p>
+    <p>Feel free to connect with me on:</p>
+    <p>
+        &bull; <a href="https://www.linkedin.com/in/kubilay-zengin-03962b242/" target="_blank" style="color: #000;">LinkedIn</a> - Explore my professional journey and connect.<br>
+        &bull; <a href="https://github.com/KubilayZengin" target="_blank" style="color: #000;">GitHub</a> - Check out my projects and contributions.<br>
+        &bull; <a href="https://drive.google.com/file/d/1GipcoUtIcRhTY_ajiGAQwjLOFZjLol1z/view?usp=sharing" style="color: #000;">CV</a> - Download my CV for more information.
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Kubilay Zengin. All rights reserved.</p>
+</footer>
+
+<script>
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        const triggerBottom = window.innerHeight / 5 * 4;
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < triggerBottom) {
+                section.classList.add('show');
+            }
+        });
+    });
+
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
