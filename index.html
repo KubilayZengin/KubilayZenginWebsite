@@ -34,7 +34,7 @@
         header img {
             width: 150px;
             height: 150px;
-            border-radius: 50%; /* Profil resmini yuvarlak yapmak için */
+            border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
             transition: transform 0.3s;
@@ -43,14 +43,14 @@
         .social-icons img {
             width: 70px;
             height: 70px;
-            border-radius: 0; /* Sosyal medya ve CV ikonları için yuvarlaklık kaldırıldı */
+            border-radius: 0;
             transition: transform 0.3s;
         }
 
         .cv-icon {
             width: 70px;
             height: 70px;
-            border-radius: 0; /* Dikdörtgen görünüm için */
+            border-radius: 0;
             object-fit: contain;
             transition: transform 0.3s;
         }
@@ -160,14 +160,35 @@
         footer p {
             margin: 0;
         }
+
+        .language-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-button {
+            padding: 5px 10px;
+            background-color: #fff;  /* White background */
+            color: #444;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .language-button:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
 <body>
 
 <header>
-	<img src="/PP10.png" alt="Kubilay Zengin's Photo" border="0">
-    <h1>Kubilay Zengin</h1>
-    <h2>Mechatronics Engineer / Computer Science</h2>
+    <img src="/PP10.png" alt="Kubilay Zengin's Photo" border="0">
+    <h1 id="header-name">Kubilay Zengin</h1>
+    <h2 id="header-title">Mechatronics Engineer / Computer Science</h2>
     <div class="social-icons">
         <a href="https://www.linkedin.com/in/kubilay-zengin-03962b242/" target="_blank">
             <img src="/linkedin.png" alt="LinkedIn Logo">
@@ -185,50 +206,93 @@
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" id="nav-about">About</a>
+    <a href="#contact" id="nav-contact">Contact</a>
 </nav>
 
 <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I’m Kubilay Zengin, a Mechatronics Engineer with a B.Sc. from the İzmir University of Economics, where I graduated as an honour student.  Alongside my major, I completed a minor in Computer Science. I am passionate about robotics, automation, embedded systems,  artificial intelligence, software development, and electrical systems. I am actively seeking employment opportunities where I can apply my skills and continue to grow in these dynamic industries.</p>
+    <h2 id="about-title">About Me</h2>
+    <p id="about-text">Hello! I’m Kubilay Zengin, a Mechatronics Engineer with a B.Sc. from the İzmir University of Economics, where I graduated as an honour student. Alongside my major, I completed a minor in Computer Science. I am passionate about robotics, automation, embedded systems, artificial intelligence, software development, and electrical systems. I am actively seeking employment opportunities where I can apply my skills and continue to grow in these dynamic industries.</p>
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me at <a href="mailto:kubilayzenginn@hotmail.com" style="color: #000; text-decoration: underline;">kubilayzenginn@hotmail.com</a>.</p>
-    <p>Feel free to connect with me on:</p>
+    <h2 id="contact-title">Contact</h2>
+    <p id="contact-email">You can reach me at <a href="mailto:kubilayzenginn@hotmail.com" style="color: #000; text-decoration: underline;">kubilayzenginn@hotmail.com</a>.</p>
+    <p id="contact-links">Feel free to connect with me on:</p>
     <p>
-        &bull; <a href="https://www.linkedin.com/in/kubilay-zengin-03962b242/" target="_blank" style="color: #000;">LinkedIn</a> - Discover my journey and let's connect.<br>
-        &bull; <a href="https://github.com/KubilayZengin" target="_blank" style="color: #000;">GitHub</a> - Check out my projects and contributions.<br>
-        &bull; <a href="/Kubilay_Zengin_CV_EN.pdf" target="_blank" style="color: #000;">CV (EN)</a> - Review my CV in English.<br>
-        &bull; <a href="/Kubilay_Zengin_CV_TR.pdf" target="_blank" style="color: #000;">CV (TR)</a> - Review my CV in Turkish.
+        &bull; <a href="https://www.linkedin.com/in/kubilay-zengin-03962b242/" target="_blank" style="color: #000;" id="contact-linkedin">LinkedIn</a><br>
+        &bull; <a href="https://github.com/KubilayZengin" target="_blank" style="color: #000;" id="contact-github">GitHub</a><br>
+        &bull; <a href="/Kubilay_Zengin_CV_EN.pdf" target="_blank" style="color: #000;" id="contact-cv-en">CV (EN)</a><br>
+        &bull; <a href="/Kubilay_Zengin_CV_TR.pdf" target="_blank" style="color: #000;" id="contact-cv-tr">CV (TR)</a>
     </p>
 </section>
 
 <footer>
-    <p>&copy; 2024 Kubilay Zengin. All rights reserved.</p>
+    <p>&copy; 2024 Kubilay Zengin</p>
+    <div class="language-buttons">
+        <button class="language-button" onclick="changeLanguage('en')">EN</button>
+        <button class="language-button" onclick="changeLanguage('tr')">TR</button>
+    </div>
 </footer>
 
 <script>
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-        const triggerBottom = window.innerHeight / 5 * 4;
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < triggerBottom) {
+    window.onscroll = () => {
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section) => {
+            if (window.scrollY > section.offsetTop - window.innerHeight + 150) {
                 section.classList.add('show');
             }
         });
-    });
+    };
 
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
+    function changeLanguage(language) {
+        const langData = {
+            en: {
+                "header-name": "Kubilay Zengin",
+                "header-title": "Mechatronics Engineer / Computer Science",
+                "nav-about": "About",
+                "nav-contact": "Contact",
+                "about-title": "About Me",
+                "about-text": "Hello! I’m Kubilay Zengin, a Mechatronics Engineer with a B.Sc. from the İzmir University of Economics, where I graduated as an honour student. Alongside my major, I completed a minor in Computer Science. I am passionate about robotics, automation, embedded systems, artificial intelligence, software development, and electrical systems. I am actively seeking employment opportunities where I can apply my skills and continue to grow in these dynamic industries.",
+                "contact-title": "Contact",
+                "contact-email": "You can reach me at <a href='mailto:kubilayzenginn@hotmail.com'>kubilayzenginn@hotmail.com</a>.",
+                "contact-links": "Feel free to connect with me on:",
+                "contact-linkedin": "LinkedIn",
+                "contact-github": "GitHub",
+                "contact-cv-en": "CV (EN)",
+                "contact-cv-tr": "CV (TR)"
+            },
+            tr: {
+                "header-name": "Kubilay Zengin",
+                "header-title": "Mekatronik Mühendisi / Bilgisayar Bilimleri",
+                "nav-about": "Hakkımda",
+                "nav-contact": "İletişim",
+                "about-title": "Hakkımda",
+                "about-text": "Merhaba! Ben Kubilay Zengin, İzmir Ekonomi Üniversitesi Mekatronik Mühendisliği bölümünden onur öğrencisi olarak mezun oldum. Ayrıca Bilgisayar Bilimleri ve Bilişim Sistemleri alanında yan dal yaptım. Robotik, otomasyon, gömülü sistemler, yapay zeka, yazılım geliştirme ve elektrik sistemleri konusunda büyük bir tutkum var ve aktif olarak bu sektörlerde becerilerimi uygulayabileceğim ve kendimi geliştirebileceğim iş fırsatları arıyorum",
+                "contact-title": "İletişim",
+                "contact-email": "Bana şu adresten ulaşabilirsiniz: <a href='mailto:kubilayzenginn@hotmail.com'>kubilayzenginn@hotmail.com</a>.",
+                "contact-links": "Benimle bağlantıya geçebilirsiniz:",
+                "contact-linkedin": "LinkedIn",
+                "contact-github": "GitHub",
+                "contact-cv-en": "CV (EN)",
+                "contact-cv-tr": "CV (TR)"
+            }
+        };
+        
+        const lang = langData[language];
+        
+        for (const [key, value] of Object.entries(lang)) {
+            document.getElementById(key).innerHTML = value;
+        }
+    }
+</script>
 
-    document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && e.key === 'u') {
-            e.preventDefault();
+<script>
+    document.addEventListener('contextmenu', (event) => event.preventDefault());
+    document.addEventListener('keydown', (event) => {
+        if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
+            event.preventDefault();
+            alert("Bu işlem devre dışı bırakıldı.");
         }
     });
 </script>
